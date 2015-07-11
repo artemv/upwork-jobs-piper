@@ -1,0 +1,47 @@
+= "#{@list_stats[:count]} job posts from #{@list_stats[:from]} to #{@list_stats[:to]}"
+%table.table.table-striped.table-condensed
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Budget
+      %th Post date
+      %th
+
+  %tbody
+    - @job_posts.each do |job_post|
+      %tr.job_post{"data-id" => job_post.id}
+        %td
+          = link_to job_post.title, job_post.url, target: "_blank"
+          - if job_post.skills.present?
+            .small
+              = "[" + job_post.skills.map { |skill| h(skill) }.join(", ") + "]"
+        %td= job_post.description
+        %td= job_post.budget
+        %td= job_post.post_date.to_s(:long)
+        %td= bootstrap_close_button("hide this")
+
+= paginate @job_posts
+
+%form{"name" => "reviewForm"}
+  %blockquote
+    %b Stars: {{review.stars}}
+    {{review.body}}
+    %cite by: review.author
+  %select{"ng-model" => "review.stars"}
+    %option{"value" => "1"} 1 star
+    %option{"value" => "2"} 2 stars
+    %option{"value" => "3"} 3 stars
+  %textarea{"ng-model" => "review.body"}
+  %label by:
+  %input{"type" => "email", "ng-model" => "review.author"}
+  %input{"type" => "submit", "value" => "Submit"}
+
+:javascript
+  $('tr.job_post button.close').on('click', function (e) {
+      e.preventDefault();
+      var tr = $(this).closest('tr')
+      var id = tr.data('id');
+      tr.fadeOut();
+      $.post('/job_posts/' + id + '/hide');
+  });
