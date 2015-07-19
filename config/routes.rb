@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'job_posts#index'
   resources :job_posts, only: [:index] do
     member do
       post "hide"

@@ -32,4 +32,11 @@ class JobPost < ActiveRecord::Base
   def skills
     raw_data["skills"]
   end
+
+  def great_job?
+    %w(ruby rails).any? do |word|
+      skills.any? {|skill| skill.include?(word)} || description.downcase.include?(word) || title.downcase.include?(word)
+    end
+
+  end
 end

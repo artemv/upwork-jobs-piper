@@ -10,7 +10,7 @@
 
   %tbody
     - @job_posts.each do |job_post|
-      %tr.job_post{"data-id" => job_post.id}
+      %tr.job_post{"data-id" => job_post.id, "class" => job_post_class(job_post)}
         %td
           = link_to job_post.title, job_post.url, target: "_blank"
           - if job_post.skills.present?
@@ -22,20 +22,6 @@
         %td= bootstrap_close_button("hide this")
 
 = paginate @job_posts
-
-%form{"name" => "reviewForm"}
-  %blockquote
-    %b Stars: {{review.stars}}
-    {{review.body}}
-    %cite by: review.author
-  %select{"ng-model" => "review.stars"}
-    %option{"value" => "1"} 1 star
-    %option{"value" => "2"} 2 stars
-    %option{"value" => "3"} 3 stars
-  %textarea{"ng-model" => "review.body"}
-  %label by:
-  %input{"type" => "email", "ng-model" => "review.author"}
-  %input{"type" => "submit", "value" => "Submit"}
 
 :javascript
   $('tr.job_post button.close').on('click', function (e) {
