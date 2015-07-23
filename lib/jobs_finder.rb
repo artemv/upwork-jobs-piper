@@ -44,7 +44,7 @@ class JobsFinder
       unless result
         msg = "API returned no jobs for query #{query.inspect}: #{results.inspect}"
         Rails.logger.error(msg)
-        raise msg
+        raise msg unless results.inspect["Duplicate timestamp/nonce combination"]
       end
       result || []
     end
