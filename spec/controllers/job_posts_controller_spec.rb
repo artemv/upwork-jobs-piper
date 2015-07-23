@@ -23,135 +23,135 @@ RSpec.describe JobPostsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # JobPost. As you add validations to JobPost, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do
+    skip('Add a hash of attributes valid for your model')
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    skip('Add a hash of attributes invalid for your model')
+  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # JobPostsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all job_posts as @job_posts" do
+  describe 'GET #index' do
+    it 'assigns all job_posts as @job_posts' do
       job_post = JobPost.create! valid_attributes
       get :index, {}, valid_session
       expect(assigns(:job_posts)).to eq([job_post])
     end
   end
 
-  describe "GET #show" do
-    it "assigns the requested job_post as @job_post" do
+  describe 'GET #show' do
+    it 'assigns the requested job_post as @job_post' do
       job_post = JobPost.create! valid_attributes
-      get :show, {:id => job_post.to_param}, valid_session
+      get :show, { id: job_post.to_param }, valid_session
       expect(assigns(:job_post)).to eq(job_post)
     end
   end
 
-  describe "GET #new" do
-    it "assigns a new job_post as @job_post" do
+  describe 'GET #new' do
+    it 'assigns a new job_post as @job_post' do
       get :new, {}, valid_session
       expect(assigns(:job_post)).to be_a_new(JobPost)
     end
   end
 
-  describe "GET #edit" do
-    it "assigns the requested job_post as @job_post" do
+  describe 'GET #edit' do
+    it 'assigns the requested job_post as @job_post' do
       job_post = JobPost.create! valid_attributes
-      get :edit, {:id => job_post.to_param}, valid_session
+      get :edit, { id: job_post.to_param }, valid_session
       expect(assigns(:job_post)).to eq(job_post)
     end
   end
 
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new JobPost" do
-        expect {
-          post :create, {:job_post => valid_attributes}, valid_session
-        }.to change(JobPost, :count).by(1)
+  describe 'POST #create' do
+    context 'with valid params' do
+      it 'creates a new JobPost' do
+        expect do
+          post :create, { job_post: valid_attributes }, valid_session
+        end.to change(JobPost, :count).by(1)
       end
 
-      it "assigns a newly created job_post as @job_post" do
-        post :create, {:job_post => valid_attributes}, valid_session
+      it 'assigns a newly created job_post as @job_post' do
+        post :create, { job_post: valid_attributes }, valid_session
         expect(assigns(:job_post)).to be_a(JobPost)
         expect(assigns(:job_post)).to be_persisted
       end
 
-      it "redirects to the created job_post" do
-        post :create, {:job_post => valid_attributes}, valid_session
+      it 'redirects to the created job_post' do
+        post :create, { job_post: valid_attributes }, valid_session
         expect(response).to redirect_to(JobPost.last)
       end
     end
 
-    context "with invalid params" do
-      it "assigns a newly created but unsaved job_post as @job_post" do
-        post :create, {:job_post => invalid_attributes}, valid_session
+    context 'with invalid params' do
+      it 'assigns a newly created but unsaved job_post as @job_post' do
+        post :create, { job_post: invalid_attributes }, valid_session
         expect(assigns(:job_post)).to be_a_new(JobPost)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:job_post => invalid_attributes}, valid_session
-        expect(response).to render_template("new")
+        post :create, { job_post: invalid_attributes }, valid_session
+        expect(response).to render_template('new')
       end
     end
   end
 
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested job_post" do
-        job_post = JobPost.create! valid_attributes
-        put :update, {:id => job_post.to_param, :job_post => new_attributes}, valid_session
-        job_post.reload
-        skip("Add assertions for updated state")
+  describe 'PUT #update' do
+    context 'with valid params' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
       end
 
-      it "assigns the requested job_post as @job_post" do
+      it 'updates the requested job_post' do
         job_post = JobPost.create! valid_attributes
-        put :update, {:id => job_post.to_param, :job_post => valid_attributes}, valid_session
+        put :update, { id: job_post.to_param, job_post: new_attributes }, valid_session
+        job_post.reload
+        skip('Add assertions for updated state')
+      end
+
+      it 'assigns the requested job_post as @job_post' do
+        job_post = JobPost.create! valid_attributes
+        put :update, { id: job_post.to_param, job_post: valid_attributes }, valid_session
         expect(assigns(:job_post)).to eq(job_post)
       end
 
-      it "redirects to the job_post" do
+      it 'redirects to the job_post' do
         job_post = JobPost.create! valid_attributes
-        put :update, {:id => job_post.to_param, :job_post => valid_attributes}, valid_session
+        put :update, { id: job_post.to_param, job_post: valid_attributes }, valid_session
         expect(response).to redirect_to(job_post)
       end
     end
 
-    context "with invalid params" do
-      it "assigns the job_post as @job_post" do
+    context 'with invalid params' do
+      it 'assigns the job_post as @job_post' do
         job_post = JobPost.create! valid_attributes
-        put :update, {:id => job_post.to_param, :job_post => invalid_attributes}, valid_session
+        put :update, { id: job_post.to_param, job_post: invalid_attributes }, valid_session
         expect(assigns(:job_post)).to eq(job_post)
       end
 
       it "re-renders the 'edit' template" do
         job_post = JobPost.create! valid_attributes
-        put :update, {:id => job_post.to_param, :job_post => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
+        put :update, { id: job_post.to_param, job_post: invalid_attributes }, valid_session
+        expect(response).to render_template('edit')
       end
     end
   end
 
-  describe "DELETE #destroy" do
-    it "destroys the requested job_post" do
+  describe 'DELETE #destroy' do
+    it 'destroys the requested job_post' do
       job_post = JobPost.create! valid_attributes
-      expect {
-        delete :destroy, {:id => job_post.to_param}, valid_session
-      }.to change(JobPost, :count).by(-1)
+      expect do
+        delete :destroy, { id: job_post.to_param }, valid_session
+      end.to change(JobPost, :count).by(-1)
     end
 
-    it "redirects to the job_posts list" do
+    it 'redirects to the job_posts list' do
       job_post = JobPost.create! valid_attributes
-      delete :destroy, {:id => job_post.to_param}, valid_session
+      delete :destroy, { id: job_post.to_param }, valid_session
       expect(response).to redirect_to(job_posts_url)
     end
   end

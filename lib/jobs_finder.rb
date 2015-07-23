@@ -1,13 +1,13 @@
-require "upwork/api"
-require "upwork/api/routers/jobs/search"
+require 'upwork/api'
+require 'upwork/api/routers/jobs/search'
 
 class JobsFinder
 
   attr_accessor :client_config, :until_date
 
   PAGE_SIZE = 100
-  DEV_CATEGORY = "Web, Mobile & Software Dev"
-  CREATED_DATE_FIELD = "date_created"
+  DEV_CATEGORY = 'Web, Mobile & Software Dev'
+  CREATED_DATE_FIELD = 'date_created'
 
   def initialize(until_date)
     @client_config = Upwork::Api::Config.new(Rails.application.secrets.upwork_api)
@@ -32,19 +32,19 @@ class JobsFinder
   end
 
   def process_page(page_idx, jobs, search, category)
-    page_jobs = Timed.run(lambda { |delta, result| "#{delta}s spent by Upwork API to find #{result.size} jobs on page #{page_idx}" }) do
-      query = {"title" => "",
-               "category2" => category,
-               "sort" => "create_time desc",
-               "paging" => "#{PAGE_SIZE*(page_idx - 1)};#{PAGE_SIZE}"
+    page_jobs = Timed.run(->(delta, result) { "#{delta}s spent by Upwork API to find #{result.size} jobs on page #{page_idx}" }) do
+      query = { 'title' => '',
+                'category2' => category,
+                'sort' => 'create_time desc',
+                'paging' => "#{PAGE_SIZE * (page_idx - 1)};#{PAGE_SIZE}"
       }
       log("running Upwork query: #{query}")
       results = search.find(query)
-      result = results["jobs"]
+      result = results['jobs']
       unless result
         msg = "API returned no jobs for query #{query.inspect}: #{results.inspect}"
         Rails.logger.error(msg)
-        raise msg unless results.inspect["Duplicate timestamp/nonce combination"]
+        fail msg unless results.inspect['Duplicate timestamp/nonce combination']
       end
       result || []
     end
@@ -52,7 +52,7 @@ class JobsFinder
     if last_page_job
       jobs.concat(MyFixedRateJobsFilter.new(page_jobs, category).filter)
     end
-    return last_page_job
+    last_page_job
   end
 
 end

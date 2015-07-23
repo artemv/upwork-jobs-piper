@@ -37,8 +37,8 @@ module BootstrapFlashHelper
   end
 
   def build_tag_classes(alert_type = nil, dismissible = nil, tag_class = nil)
-    tag_classes = ["alert"]
-    tag_classes << "alert-dismissible" if dismissible
+    tag_classes = ['alert']
+    tag_classes << 'alert-dismissible' if dismissible
 
     # don't enable animation for test env - it makes capybara tests unstable
     tag_classes += %w(fade in) unless Rails.env.test?
@@ -49,11 +49,11 @@ module BootstrapFlashHelper
   end
 
   def bootstrap_close_button(title, dismissible = true)
-    title ||= "Close"
-    x = content_tag(:span, raw("&times;"), "aria-hidden" => "true")
-    a = { class: "close", "aria-label" => title, :value => title }
-    a.merge!("data-dismiss" => "alert") if dismissible
-    content_tag(:button, x, { type: "button" }.merge(a))
+    title ||= 'Close'
+    x = content_tag(:span, raw('&times;'), 'aria-hidden' => 'true')
+    a = { class: 'close', 'aria-label' => title, :value => title }
+    a.merge!('data-dismiss' => 'alert') if dismissible
+    content_tag(:button, x, { type: 'button' }.merge(a))
   end
 
 end

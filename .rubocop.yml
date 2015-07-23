@@ -47,7 +47,7 @@ Style/LeadingCommentSpace:
     - Gemfile
 
 Style/StringLiterals:
-  EnforcedStyle: double_quotes
+  EnforcedStyle: single_quotes
   Exclude:
     - "db/schema.rb"
 

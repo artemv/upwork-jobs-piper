@@ -1,14 +1,14 @@
-require File.expand_path("../boot", __FILE__)
+require File.expand_path('../boot', __FILE__)
 
-require "rails"
+require 'rails'
 # Pick the frameworks you want:
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "sprockets/railtie"
+require 'active_model/railtie'
+require 'active_job/railtie'
+require 'active_record/railtie'
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'action_view/railtie'
+require 'sprockets/railtie'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -16,6 +16,7 @@ require "sprockets/railtie"
 Bundler.require(*Rails.groups)
 
 module UpworkJobs
+
   class Application < Rails::Application
 
     # Settings in config/environments/* take precedence over those specified here.
@@ -36,8 +37,10 @@ module UpworkJobs
     config.autoload_paths += %W(#{Rails.root}/lib)
 
     config.log_formatter = proc do |severity, datetime, _progname, msg|
-      ms = datetime.to_f.to_s.split(".").last
+      ms = datetime.to_f.to_s.split('.').last
       "#{severity} [#{datetime.strftime("%H:%M:%S.#{ms}")} #{Process.pid}]: #{msg}\n"
     end
+
   end
+
 end
