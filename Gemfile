@@ -64,6 +64,10 @@ end
 
 group :development do
   gem "rubocop"
+  gem "guard-bundler"
+  gem "guard-rails"
+  gem "guard-rspec"
   gem "guard-livereload"
+  gem "guard-rubocop", require: false
   gem "pry-rails"
 end
