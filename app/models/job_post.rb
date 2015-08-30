@@ -6,6 +6,7 @@ class JobPost < ActiveRecord::Base
 
   scope :active, -> { where(status: 'active') }
   scope :best_priced, -> { where(['budget < 1000 AND budget > 190']) }
+  scope :hourly, -> { where(['budget is null']) }
 
   def self.import_from_upwork
     last_post = JobPost.order(:post_date).last
@@ -22,6 +23,7 @@ class JobPost < ActiveRecord::Base
                       title: job_data['title'],
                       description: job_data['snippet'],
                       budget: job_data['budget'],
+                      money_level: job_data['op_contractor_tier'],
                       post_date: job_data[JobsFinder::CREATED_DATE_FIELD],
                       url: job_data['url'],
                       status: 'active')

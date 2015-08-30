@@ -25,10 +25,11 @@ class MyFixedRateJobsFilter
     end
     title_downcased = job['title'].downcase
 
-    return false unless job['job_type'] == 'Fixed'
-    return false if job['budget'].to_i > 1000
-    return false if job['budget'].to_i < 50
-    return false if %w(psd php odoo yii mql4 seo java wcf).any? { |bad_word| title_downcased =~ /\b#{bad_word}\b/ }
+    if job['job_type'] == 'Fixed'
+      return false if job['budget'].to_i > 1000
+      return false if job['budget'].to_i < 50
+    end
+    return false if %w(psd php odoo yii mql4 seo java wcf asp).any? { |bad_word| title_downcased =~ /\b#{bad_word}\b/ }
     bad_substrings = %w(moodle woocommerce magento phpbb wordpress laravel joomla python duplicate prestashop drupal) +
                      %w(salesforce sakai asp.net opencart verilog codeigniter cakephp oscommerce mediawiki smarty whmcs) +
                      %w(bigcommerce) + # until at least I learn them
