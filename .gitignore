@@ -20,8 +20,5 @@ config/database.yml
 /log/*
 /doc/*
 .DS_Store
-.picasa.ini
-.picasaoriginals
-config/secrets.yml
 query_upwork.rb
 /bak/*
