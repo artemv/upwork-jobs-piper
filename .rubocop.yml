@@ -11,6 +11,7 @@ Metrics/LineLength:
   Exclude:
     - "db/schema.rb"
     - "config/initializers/devise.rb"
+    - "Guardfile"
   Max: 120
 
 Style/AndOr:
@@ -29,6 +30,8 @@ Style/EmptyLinesAroundBlockBody:
   Enabled: false
 
 Style/EmptyLinesAroundClassBody:
+  Exclude:
+    - "db/migrate/*"
   EnforcedStyle: empty_lines
 
 Style/EmptyLinesAroundModuleBody:
@@ -61,6 +64,6 @@ Style/DotPosition:
 Rails/TimeZone:
   Enabled: false
 
-Style/ClassVars:
+Rails/Output:
   Exclude:
-    - "spec/ar_capybara_hack.rb"
+    - "lib/upwork_client_setup.rb"
