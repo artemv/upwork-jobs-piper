@@ -4,7 +4,7 @@
   "description": "Ruby on Rails app indexing Upwork job posts, rejecting some of them by blacklist",
   "main": "index.js",
   "scripts": {
-    "test": "spec ."
+    "test": "rspec ."
   },
   "author": "Artem Vasiliev",
   "license": "MIT",
