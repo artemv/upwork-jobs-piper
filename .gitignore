@@ -22,3 +22,6 @@ config/database.yml
 .DS_Store
 query_upwork.rb
 /bak/*
+.env
+node_modules/
+upwork-jobs-todo.txt
