@@ -1,4 +1,5 @@
-= "#{@list_stats[:count]} job posts from #{@list_stats[:from]} to #{@list_stats[:to]}"
+= "#{@list_stats[:count]} job posts"
+= "from #{@list_stats[:from]} to #{@list_stats[:to]}" if @list_stats[:from]
 %table.table.table-striped.table-condensed
   %thead
     %tr

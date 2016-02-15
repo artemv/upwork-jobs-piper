@@ -9,7 +9,7 @@ class JobPostsController < ApplicationController
     x = x.best_priced if params[:best_prices]
     x = x.hourly if params[:hourly]
     x = x.order('post_date desc')
-    @list_stats = { from: x.first.post_date.to_s(:long), to: x.last.post_date.to_s(:long), count: x.count }
+    @list_stats = { from: (x.first.post_date.to_s(:long) if x.first), to: (x.last.post_date.to_s(:long) if x.last), count: x.count }
     @job_posts = x.page params[:page]
   end
 
