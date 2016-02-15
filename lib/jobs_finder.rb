@@ -48,9 +48,7 @@ class JobsFinder
       result || []
     end
     last_page_job = page_jobs[-1]
-    if last_page_job
-      jobs.concat(JobFilters::Main.new(page_jobs).filter)
-    end
+    jobs.concat(JobFilters::Main.new(page_jobs).filter) if last_page_job
     last_page_job
   end
 
