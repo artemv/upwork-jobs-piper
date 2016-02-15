@@ -15,19 +15,6 @@
 #
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
-if false
-  guard 'livereload' do
-    watch(%r{app/views/.+\.(erb|haml|slim)$})
-    watch(%r{app/helpers/.+\.rb})
-    watch(%r{public/.+\.(css|js|html)})
-    watch(%r{config/locales/.+\.yml})
-    # Rails Assets Pipeline
-    watch(%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html|png|jpg|less))).*}) { |m| "/assets/#{m[3]}" }
-
-    watch(%r{app/controllers/.+\.rb})
-  end
-end
-
 # Guard-Rails supports a lot options with default values:
 # daemon: false                        # runs the server as a daemon.
 # debugger: false                      # enable ruby-debug gem.
