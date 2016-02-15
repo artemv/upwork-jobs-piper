@@ -16,19 +16,25 @@ class JobPost < ActiveRecord::Base
                  else
                    Time.now - FIRST_FETCH_RANGE
                  end
-    JobsFinder.new(until_date).find.each do |job_data|
-      identifier = job_data['id']
-      next if JobPost.find_by_identifier(identifier)
-      JobPost.create!(raw_data: job_data,
-                      identifier: identifier,
-                      title: job_data['title'],
-                      description: job_data['snippet'],
-                      budget: job_data['budget'],
-                      money_level: job_data['op_contractor_tier'],
-                      post_date: job_data[JobsFinder::CREATED_DATE_FIELD],
-                      url: job_data['url'],
-                      status: 'active')
-    end
+    import_upwork_jobs(JobsFinder.new(until_date).find)
+  end
+
+  def self.import_upwork_jobs(jobs_data)
+    jobs_data.each { |job_data| import_upwork_job(job_data) }
+  end
+
+  def self.import_upwork_job(job_data)
+    identifier = job_data['id']
+    return if find_by_identifier(identifier)
+    self.create!(raw_data: job_data,
+                 identifier: identifier,
+                 title: job_data['title'],
+                 description: job_data['snippet'],
+                 budget: job_data['budget'],
+                 money_level: job_data['op_contractor_tier'],
+                 post_date: job_data[JobsFinder::CREATED_DATE_FIELD],
+                 url: job_data['url'],
+                 status: 'active')
   end
 
   def skills

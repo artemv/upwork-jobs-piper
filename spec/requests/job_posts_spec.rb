@@ -16,7 +16,7 @@ RSpec.describe 'JobPosts', type: :request do
 
     context 'with non-empty data' do
       let(:jobs_data) do
-        JSON.parse(File.open(Rails.root.join('spec', 'support', 'fixtures', 'jobs_search', 'list.json')).read)
+        load_json_fixture('jobs_search', 'list.json')
       end
 
       before(:example) do
