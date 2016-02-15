@@ -17,22 +17,12 @@ class UpworkClientSetup
                                        'debug'           => false
                                      })
 
+    if !config.access_token and !config.access_secret
+      fail 'You need to get the API keys at Upwork app center'
+    end
+
     # setup client
     client = Upwork::Api::Client.new(config)
-
-    # run authorization in case we haven't done it yet
-    # and do not have an access token-secret pair
-    if !config.access_token and !config.access_secret
-      authz_url = client.get_authorization_url
-
-      puts 'Visit the authorization url and provide oauth_verifier for further authorization'
-      puts authz_url
-      fail
-      verifier = gets.strip
-      @token = client.get_access_token(verifier)
-      p [config.access_token, config.access_secret]
-      # store access token data in safe place!
-    end
 
     client
   end
