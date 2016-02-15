@@ -14,7 +14,7 @@
   },
   "config": {
     "ghooks": {
-      "commit-msg": "/Users/artem/.nvm/versions/node/v4.2.6/bin/validate-commit-msg"
+      "commit-msg": "validate-commit-msg"
     },
     "validate-commit-msg": {
       "types": [
