@@ -1,6 +1,7 @@
 class JobPost < ActiveRecord::Base
 
   FETCH_GAP = 2.hours
+  FIRST_FETCH_RANGE = 14.days
 
   serialize :raw_data
 
@@ -13,7 +14,7 @@ class JobPost < ActiveRecord::Base
     until_date = if last_post
                    last_post.post_date - FETCH_GAP
                  else
-                   Time.now - 7.days
+                   Time.now - FIRST_FETCH_RANGE
                  end
     JobsFinder.new(until_date).find.each do |job_data|
       identifier = job_data['id']
@@ -34,10 +35,13 @@ class JobPost < ActiveRecord::Base
     raw_data['skills']
   end
 
+  def great_word_job?(word)
+    skills.any? { |skill| skill.include?(word) } || description.downcase.include?(word) || title.downcase.include?(word)
+  end
+
   def great_job?
-    %w(ruby rails).any? do |word|
-      skills.any? { |skill| skill.include?(word) } || description.downcase.include?(word) || title.downcase.include?(word)
-    end
+    return true if JobFilters::HourlyRateFilter::WHITELIST.any? { |word| self.great_word_job?(word) }
+    return true if %w(node.js angular.js angular).any? { |word| self.great_word_job?(word) }
   end
 
 end
