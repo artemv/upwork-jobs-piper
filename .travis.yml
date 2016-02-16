@@ -2,6 +2,6 @@ language: ruby
 cache: bundler
 before_script:
   - cp config/database.yml.example config/database.yml
-  - bundle exec rake db:setup RAILS_ENV=test
+  - bundle exec rake db:create db:migrate RAILS_ENV=test
 script:
   - bundle exec rspec
