@@ -61,6 +61,8 @@ group :test do
 
   gem 'capybara'
   gem 'poltergeist'
+
+  gem 'codacy-coverage', :require => false
 end
 
 group :development do
