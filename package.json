@@ -1,7 +1,7 @@
 {
-  "name": "upwork-jobs-list-ror",
+  "name": "upwork-jobs-piper",
   "version": "0.0.1",
-  "description": "Ruby on Rails app indexing Upwork job posts, rejecting some of them by blacklist",
+  "description": "Ruby on Rails app filtering Upwork job posts and providing API for the resultset",
   "main": "index.js",
   "scripts": {
     "test": "rspec ."
