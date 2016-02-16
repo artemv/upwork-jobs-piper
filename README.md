@@ -4,6 +4,7 @@ This is a customizeable Upwork jobs filtering app.
 [![Travis build status](http://img.shields.io/travis/artemv/upwork-jobs-piper.svg?style=flat)](https://travis-ci.org/artemv/upwork-jobs-piper)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/fddd6442eb6a400a87aafdb1bfb28e46)](https://www.codacy.com/app/artem-job/upwork-jobs-piper)
 [![Codacy Badge](https://api.codacy.com/project/badge/coverage/fddd6442eb6a400a87aafdb1bfb28e46)](https://www.codacy.com/app/artem-job/upwork-jobs-piper)
+[![Dependency Status](https://gemnasium.com/artemv/upwork-jobs-piper.svg)](https://gemnasium.com/artemv/upwork-jobs-piper)
 
 #Installation
 * Register new application at Upwork to get consumer key and consumer secret: https://www.upwork.com/services/api/apply.
