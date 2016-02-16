@@ -1,6 +1,6 @@
 language: ruby
-bundler_args: --without development production
+cache: bundler
 before_script:
   - cp config/database.yml.example config/database.yml
 script:
-  - bundle exec rake spec
+  - rspec
