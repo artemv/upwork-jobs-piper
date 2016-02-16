@@ -1,0 +1,8 @@
+:javascript
+  $('tr.job_post button.close').on('click', function (e) {
+      e.preventDefault();
+      var tr = $(this).closest('tr');
+      var id = tr.data('id');
+      tr.fadeOut();
+      $.post('/job_posts/' + id + '/hide');
+  });

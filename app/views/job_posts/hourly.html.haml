@@ -5,21 +5,19 @@
     %tr
       %th Title
       %th Description
-      %th Budget
       %th Country
       %th Post date
       %th
 
   %tbody
     - @job_posts.each do |job_post|
-      %tr.job_post{"data-id" => job_post.id, "class" => job_post_class(job_post)}
+      %tr.job_post{"data-id" => job_post.id}
         %td
           = link_to job_post.title, job_post.url, target: "_blank"
           - if job_post.skills.present?
             .small
               = "[" + job_post.skills.map { |skill| h(skill) }.join(", ") + "]"
         %td= job_post.description
-        %td= job_post.budget
         %td
           = job_post.country
           %div= money_level(job_post)

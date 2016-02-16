@@ -8,6 +8,7 @@ class JobPost < ActiveRecord::Base
   scope :active, -> { where(status: 'active') }
   scope :best_priced, -> { where(['budget < 1000 AND budget > 190']) }
   scope :hourly, -> { where(['budget is null']) }
+  scope :ordered, -> { order('post_date desc') }
 
   def self.import_from_upwork
     last_post = JobPost.order(:post_date).last
@@ -50,4 +51,14 @@ class JobPost < ActiveRecord::Base
     return true if %w(node.js angular.js angular).any? { |word| self.great_word_job?(word) }
   end
 
+  def country
+    raw_data['client']['country']
+  end
+
+  def contractor_tier_key
+    tier = money_level.to_i
+    return :entry if tier == 1
+    return :intermediate if tier == 2
+    return :expert if tier == 3
+  end
 end
