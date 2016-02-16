@@ -1,2 +1,4 @@
+--format doc
 --color
---require spec_helper
+--require rails_helper
+--order random
