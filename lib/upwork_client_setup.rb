@@ -17,12 +17,26 @@ class UpworkClientSetup
                                        'debug'           => false
                                      })
 
-    if !config.access_token and !config.access_secret
-      fail 'You need to get the API keys at Upwork app center'
+    if !config.access_token and !config.consumer_key
+      puts 'Initialize .env file first'
+      return nil
     end
 
     # setup client
     client = Upwork::Api::Client.new(config)
+
+    if !config.access_token and !config.access_secret
+      authz_url = client.get_authorization_url
+
+      puts 'Visit the authorization url and enter the oauth_verifier code from that page here:'
+      puts authz_url
+      verifier = gets.strip
+      token = client.get_access_token(verifier)
+      puts 'Put these access token keys into .env file:'
+      info = {'UPWORK_ACCESS_TOKEN' => config.access_token, 'UPWORK_ACCESS_SECRET' => config.access_secret}
+      puts info.inspect
+      return nil
+    end
 
     client
   end
