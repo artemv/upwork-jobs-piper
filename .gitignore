@@ -25,3 +25,4 @@ query_upwork.rb
 .env
 node_modules/
 upwork-jobs-todo.txt
+coverage/
