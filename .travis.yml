@@ -3,4 +3,4 @@ cache: bundler
 before_script:
   - cp config/database.yml.example config/database.yml
 script:
-  - rspec
+  - bundle exec rspec
