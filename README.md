@@ -8,8 +8,7 @@ This is a customizeable Upwork jobs filtering app.
 #Installation
 1. Register new application at Upwork to get consumer key and consumer secret: https://www.upwork.com/services/api/apply.
 Or use your existing app key, you can see them at https://www.upwork.com/services/api/keys.
-1. Clone the repo:
-```
+1. Clone the repo: ```
 git clone https://github.com/artemv/upwork-jobs-piper.git
 cd upwork-jobs-piper
 ```
@@ -19,8 +18,7 @@ cd upwork-jobs-piper
 1. Run the access key script: `bin/setup_upwork_keys.rb`. Follow its instructions to get UPWORK_ACCESS_TOKEN and UPWORK_ACCESS_SECRET keys.
 Put their values to .env file and uncomment relevant lines.
 1. Run this command to verify that Upwork API access works: `JOB_ID="_~01a9a3a697ce5e4cf5" bin/query_upwork.rb`. It should print job data JSON.
-1. Initialize a local database.yml file and create the database:
-```
+1. Initialize a local database.yml file and create the database: ```
 cp config/database.yml.example config/database.yml
 bundle exec rake db:create db:migrate
 ```
