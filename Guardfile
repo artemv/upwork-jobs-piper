@@ -63,6 +63,7 @@ guard :rspec, cmd: 'bundle exec rspec' do
   watch(rspec.spec_helper) { rspec.spec_dir }
   watch(rspec.spec_support) { rspec.spec_dir }
   watch(rspec.spec_files)
+  ignore(%r{^spec/features/.+\.rb$})
 
   # Ruby files
   ruby = dsl.ruby
@@ -87,8 +88,8 @@ guard :rspec, cmd: 'bundle exec rspec' do
   watch(rails.app_controller)  { "#{rspec.spec_dir}/controllers" }
 
   # Capybara features specs
-  watch(rails.view_dirs)     { |m| rspec.spec.run("features/#{m[1]}") }
-  watch(rails.layouts)       { |m| rspec.spec.run("features/#{m[1]}") }
+  # watch(rails.view_dirs)     { |m| rspec.spec.run("features/#{m[1]}") }
+  # watch(rails.layouts)       { |m| rspec.spec.run("features/#{m[1]}") }
 
   # Turnip features and steps
   watch(%r{^spec/acceptance/(.+)\.feature$})
