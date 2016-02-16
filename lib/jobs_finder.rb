@@ -2,6 +2,7 @@ require 'upwork/api'
 require 'upwork/api/routers/jobs/search'
 require 'job_filters/main'
 
+# Fetches jobs from Upwork not earlier than given date, and filters them
 class JobsFinder
 
   attr_accessor :client_config, :until_date
@@ -31,7 +32,8 @@ class JobsFinder
   end
 
   def process_page(page_idx, jobs, search)
-    page_jobs = Timed.run(->(delta, result) { "#{delta}s spent by Upwork API to find #{result.size} jobs on page #{page_idx}" }) do
+    reporter = ->(delta, result) { "#{delta}s spent by Upwork API to find #{result.size} jobs on page #{page_idx}" }
+    page_jobs = Timed.run(reporter) do
       query = { 'title' => '',
                 'category2' => JobFilters::DEV_CATEGORY,
                 'sort' => 'create_time desc',
