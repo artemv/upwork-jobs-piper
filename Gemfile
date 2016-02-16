@@ -58,11 +58,13 @@ end
 
 group :test do
   gem 'rspec-rails'
+  gem 'database_cleaner'
 
   gem 'capybara'
   gem 'poltergeist'
 
   gem 'codacy-coverage', :require => false
+  gem 'webmock'
 end
 
 group :development do

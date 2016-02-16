@@ -16,6 +16,11 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'codacy-coverage'
+require 'webmock/rspec'
+require 'database_cleaner'
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -42,9 +47,9 @@ RSpec.configure do |config|
 
   Dir[("#{File.dirname(__FILE__)}/support/**/*.rb")].each { |f| require f }
 
-  require 'codacy-coverage'
   Codacy::Reporter.start
 
+  WebMock.disable_net_connect!(allow_localhost: true)
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
