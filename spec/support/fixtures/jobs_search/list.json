@@ -21,5 +21,28 @@
             "past_hires": 0,
             "payment_verification_status": null
         }
+    },
+    {
+        "id": "~01df1e5ed63d0d8f37",
+        "title": "Ruby on Rails Developer",
+        "snippet": "We are glad to invite you to become part of the team that creates award-winning entertainment, sports and real-time applications for European and American TV shows with a large amount of users, high ratings, trends in popular social networks and a great number of awards!\n\nWhat we require:\n\n- Working experience as RoR Developer not less than 2 years, Rails 3+;\n- Experience in JS Development;\n- High speed, qualitative code, structural thinking;\n- English knowledge minimum on the level of understanding written tasks.\n\nWill be a great plus for you:\n\n- Knowledge of Ember.js or a great desire to learn it and use it;\n- Knowledge of MySQL;\n- Knowledge of SQL optimization.\n\nIt would be great if you are:\n\n-Initiative;\n-Self-disciplined;\n-A team player;\n-Organized;\n-Careful approach to work;\n-Flexible (either to working schedule or to made decisions and interaction in a team).\n\nDo not hesitate to contact us! We’ll be glad to tell you everything about our position!",
+        "category2": "Web, Mobile & Software Dev",
+        "subcategory2": "Web Development",
+        "skills": ["emberjs", "javascript", "mysql-programming", "ruby-on-rails"],
+        "job_type": "Hourly",
+        "budget": 0,
+        "duration": "More than 6 months",
+        "workload": "Less than 10 hrs/week",
+        "job_status": "Open",
+        "date_created": "2016-02-16T10:20:21+0000",
+        "url": "http://www.upwork.com/jobs/~01df1e5ed63d0d8f37",
+        "client": {
+            "country": "Belarus",
+            "feedback": 5,
+            "reviews_count": 5,
+            "jobs_posted": 24,
+            "past_hires": 13,
+            "payment_verification_status": null
+        }
     }
 ]

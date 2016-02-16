@@ -30,7 +30,7 @@ class JobPost < ActiveRecord::Base
                  identifier: identifier,
                  title: job_data['title'],
                  description: job_data['snippet'],
-                 budget: job_data['budget'],
+                 budget: (job_data['job_type'] == 'Hourly' ? nil : job_data['budget']),
                  money_level: job_data['op_contractor_tier'],
                  post_date: job_data[JobsFinder::CREATED_DATE_FIELD],
                  url: job_data['url'],
