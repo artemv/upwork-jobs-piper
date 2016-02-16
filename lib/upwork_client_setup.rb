@@ -31,7 +31,7 @@ class UpworkClientSetup
       puts 'Visit the authorization url and enter the oauth_verifier code from that page here:'
       puts authz_url
       verifier = gets.strip
-      token = client.get_access_token(verifier)
+      client.get_access_token(verifier)
       puts 'Put these access token keys into .env file:'
       info = {'UPWORK_ACCESS_TOKEN' => config.access_token, 'UPWORK_ACCESS_SECRET' => config.access_secret}
       puts info.inspect
