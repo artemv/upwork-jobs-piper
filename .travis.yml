@@ -1,0 +1,4 @@
+language: ruby
+bundler_args: --without development production
+script:
+  - bundle exec rake spec
