@@ -1,5 +1,7 @@
+Rails:
+  Enabled: true
+
 AllCops:
-  RunRailsCops: true
   Exclude:
     - "bin/**/*"
     - "config/boot.rb"
@@ -41,7 +43,7 @@ Style/NumericLiterals:
   Exclude:
     - "db/schema.rb"
 
-Style/SingleSpaceBeforeFirstArg:
+Style/SpaceBeforeFirstArg:
   Exclude:
     - "db/schema.rb"
 
