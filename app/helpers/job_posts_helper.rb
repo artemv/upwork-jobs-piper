@@ -6,7 +6,7 @@ module JobPostsHelper
 
   def money_level(job_post)
     return '$$' if job_post.contractor_tier_key == :intermediate
-    return '$$$' if job_post.contractor_tier == :expert
+    return '$$$' if job_post.contractor_tier_key == :expert
   end
 
 end
