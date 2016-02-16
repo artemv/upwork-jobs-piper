@@ -62,6 +62,8 @@ group :test do
 
   gem 'capybara'
   gem 'poltergeist'
+  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
 
   gem 'codacy-coverage', :require => false
   gem 'webmock'
