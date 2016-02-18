@@ -22,7 +22,7 @@ class JobPostsController < ApplicationController
 
   def hide
     @job_post.update(status: 'not_interested')
-    render nil
+    render :nothing => true, :content_type => 'text/plain'
   end
 
   private
