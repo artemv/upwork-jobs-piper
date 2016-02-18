@@ -29,6 +29,11 @@ bundle exec rake db:create db:migrate
 * Run the jobs populating script: `bundle exec rake upwork_jobs:fetch_jobs`
 * Run the local server: `bundle exec guard`
 * Open it in browser: http://localhost:3010/ (fixed rate and hourly jobs) or http://localhost:3010/hourly (hourly jobs only).
+* Now you can setup a cron task to fetch fresh jobs e.g. each 10 mins:
+```
+*/10 * * * * /bin/bash -l -c 'cd /absolute/path/to/upwork-jobs-piper && bundle exec rake upwork_jobs:fetch_jobs --silent'
+
+```
 
 #Terms of Use
 This app uses Upwork API and Upwork jobs data, make sure to check their Terms of Use before using it: https://developers.upwork.com/api-tos.html
