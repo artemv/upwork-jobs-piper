@@ -28,7 +28,7 @@ bundle exec rake db:create db:migrate
 ```
 * Run the jobs populating script: `bundle exec rake upwork_jobs:fetch_jobs`
 * Run the local server: `bundle exec guard`
-* Open it in browser: http://localhost:3010
+* Open it in browser: http://localhost:3010/ (fixed rate and hourly jobs) or http://localhost:3010/hourly (hourly jobs only).
 
 #Terms of Use
 This app uses Upwork API and Upwork jobs data, make sure to check their Terms of Use before using it: https://developers.upwork.com/api-tos.html
