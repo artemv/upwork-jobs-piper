@@ -3,7 +3,7 @@ require 'upwork/api/routers/jobs/search'
 require 'job_filters/main'
 
 # Fetches jobs from Upwork not earlier than given date, and filters them
-class JobsFinder
+class JobsFetcher
 
   attr_accessor :client_config, :until_date
 
@@ -15,7 +15,7 @@ class JobsFinder
     @until_date = until_date
   end
 
-  def find
+  def fetch
     client = Upwork::Api::Client.new(client_config)
     search = Upwork::Api::Routers::Jobs::Search.new(client)
     page_idx = 1

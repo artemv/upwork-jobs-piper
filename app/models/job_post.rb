@@ -17,7 +17,7 @@ class JobPost < ActiveRecord::Base
                  else
                    Time.now - FIRST_FETCH_RANGE
                  end
-    import_upwork_jobs(JobsFinder.new(until_date).find)
+    import_upwork_jobs(JobsFetcher.new(until_date).fetch)
   end
 
   def self.import_upwork_jobs(jobs_data)
@@ -33,7 +33,7 @@ class JobPost < ActiveRecord::Base
                  description: job_data['snippet'],
                  budget: (job_data['job_type'] == 'Hourly' ? nil : job_data['budget']),
                  money_level: job_data['op_contractor_tier'],
-                 post_date: job_data[JobsFinder::CREATED_DATE_FIELD],
+                 post_date: job_data[JobsFetcher::CREATED_DATE_FIELD],
                  url: job_data['url'],
                  status: 'active')
   end
