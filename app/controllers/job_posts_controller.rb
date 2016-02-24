@@ -5,19 +5,13 @@ class JobPostsController < ApplicationController
   # GET /job_posts
   # GET /job_posts.json
   def index
-    x = JobPost.active
-    x = x.best_priced if params[:best_prices]
-    x = x.ordered
-    init_index_vars(x)
-    @list_stats = { from: (x.first.post_date.to_s(:long) if x.first), to: (x.last.post_date.to_s(:long) if x.last), count: x.count }
-    @job_posts = x.page params[:page]
+    jobs = basic_jobs_set
+    jobs = jobs.best_priced if params[:best_prices]
+    init_index_vars(jobs)
   end
 
   def hourly
-    x = JobPost.active
-    x = x.hourly
-    x = x.ordered
-    init_index_vars(x)
+    init_index_vars(basic_jobs_set.hourly)
   end
 
   def hide
@@ -27,14 +21,21 @@ class JobPostsController < ApplicationController
 
   private
 
+  def basic_jobs_set
+    JobPost.active.ordered
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def load_job_post
     @job_post = JobPost.find(params[:id])
   end
 
-  def init_index_vars(x)
-    @list_stats = { from: (x.first.post_date.to_s(:long) if x.first), to: (x.last.post_date.to_s(:long) if x.last), count: x.count }
-    @job_posts = x.page params[:page]
+  def init_index_vars(jobs)
+    @list_stats = {
+      from: (jobs.first.post_date.to_s(:long) if jobs.first),
+      to: (jobs.last.post_date.to_s(:long) if jobs.last),
+      count: jobs.count }
+    @job_posts = jobs.page params[:page]
   end
 
 end
