@@ -15,7 +15,7 @@ Or use your existing app key, you can see them at https://www.upwork.com/service
 git clone https://github.com/artemv/upwork-jobs-piper.git
 ```
 * Install Ruby 2.2.2 from https://www.ruby-lang.org/en/downloads/ or via RVM (https://rvm.io/)
-* Install Rails and necessary gems:
+* Install Rails and other dependencies:
 ```
 cd upwork-jobs-piper
 gem install bundler
