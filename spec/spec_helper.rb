@@ -51,7 +51,7 @@ RSpec.configure do |config|
   CodeClimate::TestReporter.start
   # Codacy::Reporter.start
 
-  WebMock.disable_net_connect!(allow_localhost: true, allow: ['api.codacy.com'])
+  WebMock.disable_net_connect!(allow_localhost: true, allow: ['api.codacy.com', 'codeclimate.com'])
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
