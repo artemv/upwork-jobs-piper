@@ -22,7 +22,7 @@ module JobFilters
     end
 
     def good_job?(job)
-      return false unless DEV_SUBCATEGORIES.push(DEV_CATEGORY).include?(job['subcategory2'])
+      return false unless (DEV_SUBCATEGORIES + [DEV_CATEGORY]).include?(job['subcategory2'])
 
       unless job['title']
         Rails.logger.error("job #{job.inspect} has no title, strange")
