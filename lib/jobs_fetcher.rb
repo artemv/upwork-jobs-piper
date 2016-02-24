@@ -8,7 +8,7 @@ class JobsFetcher
   attr_accessor :client_config, :until_date
 
   PAGE_SIZE = 100
-  CREATED_DATE_FIELD = 'date_created'
+  CREATED_DATE_FIELD = 'date_created'.freeze
 
   def initialize(until_date)
     @client_config = Upwork::Api::Config.new(Rails.application.secrets.upwork_api)
@@ -45,7 +45,7 @@ class JobsFetcher
       unless result
         msg = "API returned no jobs for query #{query.inspect}: #{results.inspect}"
         Rails.logger.error(msg)
-        fail msg unless results.inspect['Duplicate timestamp/nonce combination']
+        raise msg unless results.inspect['Duplicate timestamp/nonce combination']
       end
       result || []
     end

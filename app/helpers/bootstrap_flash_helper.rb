@@ -1,7 +1,7 @@
 # based on  https://github.com/seyhunak/twitter-bootstrap-rails project
 module BootstrapFlashHelper
 
-  ALERT_TYPES = [:success, :info, :warning, :danger] unless const_defined?(:ALERT_TYPES)
+  ALERT_TYPES = [:success, :info, :warning, :danger].freeze unless const_defined?(:ALERT_TYPES)
 
   def bootstrap_flash(options = {})
     flash_messages = []
@@ -52,7 +52,7 @@ module BootstrapFlashHelper
     title ||= 'Close'
     x = content_tag(:span, raw('&times;'), 'aria-hidden' => 'true')
     a = { class: 'close', 'aria-label' => title, :value => title }
-    a.merge!('data-dismiss' => 'alert') if dismissible
+    a['data-dismiss'] = 'alert' if dismissible
     content_tag(:button, x, { type: 'button' }.merge(a))
   end
 

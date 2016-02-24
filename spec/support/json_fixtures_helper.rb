@@ -7,5 +7,5 @@ def load_json_fixture(dir, fn)
 end
 
 def load_json_fixtures_map(dir, fn)
-  load_json_fixture(dir, fn).map {|data| [data['id'], data]}.to_h
+  load_json_fixture(dir, fn).map { |data| [data['id'], data] }.to_h
 end

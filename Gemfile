@@ -60,7 +60,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara-webkit'
 
-  gem 'codacy-coverage', :require => false
+  gem 'codacy-coverage', require: false
   gem 'webmock'
 end
 

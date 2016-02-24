@@ -27,15 +27,15 @@ class JobPost < ActiveRecord::Base
   def self.import_upwork_job(job_data)
     identifier = job_data['id']
     return if find_by_identifier(identifier)
-    self.create!(raw_data: job_data,
-                 identifier: identifier,
-                 title: job_data['title'],
-                 description: job_data['snippet'],
-                 budget: (job_data['job_type'] == 'Hourly' ? nil : job_data['budget']),
-                 money_level: job_data['op_contractor_tier'],
-                 post_date: job_data[JobsFetcher::CREATED_DATE_FIELD],
-                 url: job_data['url'],
-                 status: 'active')
+    create!(raw_data: job_data,
+            identifier: identifier,
+            title: job_data['title'],
+            description: job_data['snippet'],
+            budget: (job_data['job_type'] == 'Hourly' ? nil : job_data['budget']),
+            money_level: job_data['op_contractor_tier'],
+            post_date: job_data[JobsFetcher::CREATED_DATE_FIELD],
+            url: job_data['url'],
+            status: 'active')
   end
 
   def skills
@@ -47,8 +47,8 @@ class JobPost < ActiveRecord::Base
   end
 
   def great_job?
-    return true if JobFilters::HourlyRateFilter::WHITELIST.any? { |word| self.great_word_job?(word) }
-    return true if %w(node.js angular.js angular).any? { |word| self.great_word_job?(word) }
+    return true if JobFilters::HourlyRateFilter::WHITELIST.any? { |word| great_word_job?(word) }
+    return true if %w(node.js angular.js angular).any? { |word| great_word_job?(word) }
   end
 
   def country
@@ -61,4 +61,5 @@ class JobPost < ActiveRecord::Base
     return :intermediate if tier == 2
     return :expert if tier == 3
   end
+
 end

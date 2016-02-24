@@ -1,9 +1,9 @@
 module JobFilters
 
-  DEV_CATEGORY = 'Web, Mobile & Software Dev'
+  DEV_CATEGORY = 'Web, Mobile & Software Dev'.freeze
   DEV_SUBCATEGORIES = ['Web Development', 'Ecommerce Development', 'Other - Software Development',
-                       'Scripts & Utilities', 'QA & Testing']
-  FIXED_JOB_TYPE = 'Fixed'
+                       'Scripts & Utilities', 'QA & Testing'].freeze
+  FIXED_JOB_TYPE = 'Fixed'.freeze
 
   class Main
 

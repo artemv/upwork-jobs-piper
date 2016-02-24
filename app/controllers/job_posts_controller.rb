@@ -22,7 +22,7 @@ class JobPostsController < ApplicationController
 
   def hide
     @job_post.update(status: 'not_interested')
-    render :nothing => true, :content_type => 'text/plain'
+    render nothing: true, content_type: 'text/plain'
   end
 
   private
@@ -36,4 +36,5 @@ class JobPostsController < ApplicationController
     @list_stats = { from: (x.first.post_date.to_s(:long) if x.first), to: (x.last.post_date.to_s(:long) if x.last), count: x.count }
     @job_posts = x.page params[:page]
   end
+
 end

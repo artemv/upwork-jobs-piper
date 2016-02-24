@@ -1,6 +1,6 @@
 namespace :upwork_jobs do
 
-  task fetch_jobs: :environment  do
+  task fetch_jobs: :environment do
     begin
       JobPost.import_from_upwork
     rescue => e

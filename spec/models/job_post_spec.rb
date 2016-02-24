@@ -27,16 +27,16 @@ describe 'JobPost' do
 
     describe 'import' do
       def jobs_endpoint(from, to)
-        'https://www.upwork.com/api/profiles/v2/search/jobs.json?' +
-            "category2=Web,%20Mobile%20%26%20Software%20Dev&paging=#{from}%3B#{to}&sort=create_time%20desc&title="
+        'https://www.upwork.com/api/profiles/v2/search/jobs.json?' \
+          "category2=Web,%20Mobile%20%26%20Software%20Dev&paging=#{from}%3B#{to}&sort=create_time%20desc&title="
       end
 
       it 'should work' do
         stub_request(:get, jobs_endpoint(0, 100)).
-            to_return(status: 200, body: {jobs: load_json_fixture(fixtures_dir, fixtures_file)}.to_json)
+          to_return(status: 200, body: { jobs: load_json_fixture(fixtures_dir, fixtures_file) }.to_json)
 
         stub_request(:get, jobs_endpoint(100, 100)).
-            to_return(status: 200, body: {jobs: []}.to_json)
+          to_return(status: 200, body: { jobs: [] }.to_json)
 
         expect(JobPost.count).to eq(0)
         JobPost.import_from_upwork

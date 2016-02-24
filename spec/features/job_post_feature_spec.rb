@@ -28,9 +28,9 @@ describe 'Job post' do
 
       it 'should work' do
         first_post = JobPost.first
-        job_row_selector = %Q{tr.job_post[data-id="#{first_post.id}"]}
+        job_row_selector = %(tr.job_post[data-id="#{first_post.id}"])
         expect(page).to have_css(job_row_selector) # pre-requisite
-        find(%Q{#{job_row_selector} button.close}).click
+        find(%(#{job_row_selector} button.close)).click
         expect(page).not_to have_css(job_row_selector)
 
         visit path # re-visit the page
