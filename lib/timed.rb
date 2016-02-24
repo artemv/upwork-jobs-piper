@@ -1,3 +1,4 @@
+# A utility to log yielded code execution time
 class Timed
 
   def self.run(msg, &_block)

@@ -26,7 +26,7 @@ module JobFilters
       return false unless (DEV_SUBCATEGORIES + [DEV_CATEGORY]).include?(job['subcategory2'])
 
       unless job['title']
-        Rails.logger.error("job #{job.inspect} has no title, strange")
+        logger.error("job #{job.inspect} has no title, strange")
         return false
       end
 

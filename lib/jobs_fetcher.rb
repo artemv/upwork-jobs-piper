@@ -33,24 +33,31 @@ class JobsFetcher
   def process_page(page_idx, jobs, search)
     reporter = ->(delta, result) { "#{delta}s spent by Upwork API to find #{result.size} jobs on page #{page_idx}" }
     page_jobs = Timed.run(reporter) do
-      query = { 'title' => '',
-                'category2' => JobFilters::DEV_CATEGORY,
-                'sort' => 'create_time desc',
-                'paging' => "#{PAGE_SIZE * (page_idx - 1)};#{PAGE_SIZE}"
-      }
-      logger.debug("running Upwork query: #{query}")
-      results = search.find(query)
-      result = results['jobs']
-      unless result
-        msg = "API returned no jobs for query #{query.inspect}: #{results.inspect}"
-        Rails.logger.error(msg)
-        raise msg unless results.inspect['Duplicate timestamp/nonce combination']
-      end
-      result || []
+      fetch_page_jobs(page_idx, search)
     end
     last_page_job = page_jobs[-1]
     jobs.concat(JobFilters::Main.new(page_jobs).filter) if last_page_job
     last_page_job
+  end
+
+  def fetch_page_jobs(page_idx, search)
+    query = {
+      'title' => '',
+      'category2' => JobFilters::DEV_CATEGORY,
+      'sort' => 'create_time desc',
+      'paging' => "#{PAGE_SIZE * (page_idx - 1)};#{PAGE_SIZE}"
+    }
+    logger.debug("running Upwork query: #{query}")
+    results = search.find(query)
+    result = results['jobs']
+    handle_no_result(query, results) unless result
+    result || []
+  end
+
+  def handle_no_result(query, results)
+    msg = "API returned no jobs for query #{query.inspect}: #{results.inspect}"
+    logger.error(msg)
+    raise msg unless results.inspect['Duplicate timestamp/nonce combination']
   end
 
 end
