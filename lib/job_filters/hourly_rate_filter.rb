@@ -1,5 +1,6 @@
 module JobFilters
 
+  # Implements hourly rate jobs filtering
   class HourlyRateFilter
 
     WHITELIST = %w(ruby rails es6 ecmascript6 es2015 ecmascript2015) + ['ecmascript 6', 'ecmascript 2015']

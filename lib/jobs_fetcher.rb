@@ -24,7 +24,6 @@ class JobsFetcher
     while !last_post_date || last_post_date >= until_date
       last_page_job = process_page(page_idx, jobs, search)
       last_post_date = Time.parse(last_page_job[CREATED_DATE_FIELD]) if last_page_job
-      log("last_post_date of page #{page_idx}: #{last_post_date}")
       break unless last_page_job
       page_idx += 1
     end
@@ -39,7 +38,7 @@ class JobsFetcher
                 'sort' => 'create_time desc',
                 'paging' => "#{PAGE_SIZE * (page_idx - 1)};#{PAGE_SIZE}"
       }
-      log("running Upwork query: #{query}")
+      logger.debug("running Upwork query: #{query}")
       results = search.find(query)
       result = results['jobs']
       unless result

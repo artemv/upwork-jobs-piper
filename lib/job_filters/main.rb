@@ -5,6 +5,7 @@ module JobFilters
                        'Scripts & Utilities', 'QA & Testing'].freeze
   FIXED_JOB_TYPE = 'Fixed'.freeze
 
+  # Job filters composer
   class Main
 
     attr_reader :jobs
@@ -17,7 +18,7 @@ module JobFilters
       result = jobs.select do |job|
         good_job?(job)
       end
-      log "#{result.size} jobs left by #{self.class.name}"
+      logger.debug("#{result.size} jobs left by #{self.class.name}")
       result
     end
 
