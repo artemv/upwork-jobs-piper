@@ -1,5 +1,9 @@
+def load_json_fixture_text(dir, fn)
+  File.open(Rails.root.join('spec', 'support', 'fixtures', dir, fn)).read
+end
+
 def load_json_fixture(dir, fn)
-  JSON.parse(File.open(Rails.root.join('spec', 'support', 'fixtures', dir, fn)).read)
+  JSON.parse(load_json_fixture_text(dir, fn))
 end
 
 def load_json_fixtures_map(dir, fn)
