@@ -13,7 +13,13 @@ Or use your existing app key, you can see them at https://www.upwork.com/service
 * Clone the repo:
 ```
 git clone https://github.com/artemv/upwork-jobs-piper.git
+```
+* Install Ruby 2.2.2 from https://www.ruby-lang.org/en/downloads/ or via RVM (https://rvm.io/)
+* Install Rails and necessary gems:
+```
 cd upwork-jobs-piper
+gem install bundler
+bundle install
 ```
 * Initialize a local .env file: `cp .env.example .env` and put your random SECRET_KEY_BASE there.
 * After the application is approved by Upwork you can use its consumer keys, put them to UPWORK_CONSUMER_KEY and UPWORK_CONSUMER_SECRET keys of .env file
