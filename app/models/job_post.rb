@@ -1,3 +1,4 @@
+# A job posts model + its importing API entry points
 class JobPost < ActiveRecord::Base
 
   FETCH_GAP = 2.hours
@@ -27,15 +28,21 @@ class JobPost < ActiveRecord::Base
   def self.import_upwork_job(job_data)
     identifier = job_data['id']
     return if find_by_identifier(identifier)
-    create!(raw_data: job_data,
-            identifier: identifier,
-            title: job_data['title'],
-            description: job_data['snippet'],
-            budget: (job_data['job_type'] == 'Hourly' ? nil : job_data['budget']),
-            money_level: job_data['op_contractor_tier'],
-            post_date: job_data[JobsFetcher::CREATED_DATE_FIELD],
-            url: job_data['url'],
-            status: 'active')
+    create!(build_by_job_data(identifier, job_data))
+  end
+
+  def self.build_by_job_data(identifier, job_data)
+    {
+      raw_data: job_data,
+      identifier: identifier,
+      title: job_data['title'],
+      description: job_data['snippet'],
+      budget: (job_data['job_type'] == 'Hourly' ? nil : job_data['budget']),
+      money_level: job_data['op_contractor_tier'],
+      post_date: job_data[JobsFetcher::CREATED_DATE_FIELD],
+      url: job_data['url'],
+      status: 'active'
+    }
   end
 
   def skills

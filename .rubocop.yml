@@ -16,6 +16,11 @@ Metrics/LineLength:
     - "Guardfile"
   Max: 120
 
+Metrics/MethodLength:
+  Exclude:
+    - "db/migrate/20150706145806_create_job_posts.rb"
+  Max: 12
+
 Style/AndOr:
   Enabled: false
 
