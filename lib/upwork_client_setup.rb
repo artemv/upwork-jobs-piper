@@ -5,6 +5,7 @@ require 'upwork/api/routers/reports/time'
 require 'upwork/api/routers/freelancers/search'
 require 'upwork/api/routers/jobs/profile'
 
+# Sets up Upwork API client
 class UpworkClientSetup
 
   def self.setup_client
