@@ -10,10 +10,7 @@ This is a customizeable Upwork jobs filtering app.
 #Installation
 * Register new application at Upwork to get consumer key and consumer secret: https://www.upwork.com/services/api/apply.
 Or use your existing app key, you can see them at https://www.upwork.com/services/api/keys.
-* Clone the repo:
-```
-git clone https://github.com/artemv/upwork-jobs-piper.git
-```
+* Clone the repo: `git clone https://github.com/artemv/upwork-jobs-piper.git`
 * Install Ruby 2.2.2 from https://www.ruby-lang.org/en/downloads/ or via RVM (https://rvm.io/)
 * Install Rails and other dependencies:
 ```
@@ -38,7 +35,6 @@ bundle exec rake db:create db:migrate
 * Now you can setup a cron task to fetch fresh jobs e.g. each 10 mins:
 ```
 */10 * * * * /bin/bash -l -c 'cd /absolute/path/to/upwork-jobs-piper && bundle exec rake upwork_jobs:fetch_jobs --silent'
-
 ```
 
 #Terms of Use
