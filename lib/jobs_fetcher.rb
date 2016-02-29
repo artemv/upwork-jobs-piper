@@ -31,7 +31,6 @@ class JobsFetcher
   end
 
   private
-  
 
   def process_page(page_idx, jobs, search)
     reporter = ->(delta, result) { "#{delta}s spent by Upwork API to find #{result.size} jobs on page #{page_idx}" }
