@@ -10,7 +10,7 @@ This is a customizeable Upwork jobs filtering app.
 * Register new application at Upwork to get consumer key and consumer secret: https://www.upwork.com/services/api/apply.
 Or use your existing app key, you can see them at https://www.upwork.com/services/api/keys.
 * Clone the repo: `git clone https://github.com/artemv/upwork-jobs-piper.git`
-* Install Ruby 2.2.2 from https://www.ruby-lang.org/en/downloads/ or via RVM (https://rvm.io/)
+* Install Ruby 2.3.0 from https://www.ruby-lang.org/en/downloads/ or via RVM (https://rvm.io/)
 * Install Rails and other dependencies:
 ```
 cd upwork-jobs-piper
