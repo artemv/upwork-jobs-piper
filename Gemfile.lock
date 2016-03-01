@@ -359,7 +359,7 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 2.7.2)
   upwork-api
-  web-console (~> 2.0)
+  web-console
   webmock
   whenever
 
