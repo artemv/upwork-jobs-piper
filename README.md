@@ -38,3 +38,4 @@ bundle exec rake db:create db:migrate
 
 #Terms of Use
 This app uses Upwork API and Upwork jobs data, make sure to check their Terms of Use before using it: https://developers.upwork.com/api-tos.html
+
