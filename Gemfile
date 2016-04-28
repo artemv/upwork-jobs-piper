@@ -58,7 +58,6 @@ group :test do
   gem 'capybara'
   gem 'poltergeist'
   gem 'selenium-webdriver'
-  gem 'capybara-webkit'
 
   gem 'codeclimate-test-reporter', require: false
   gem 'webmock'
