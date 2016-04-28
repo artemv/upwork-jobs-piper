@@ -19,7 +19,7 @@ else
   indent = "  "
   variants << 'JOB_ID="_~01a9a3a697ce5e4cf5" ruby bin/query_upwork.rb'
   variants << 'FREELANCER_ID="~01af205f17cc6d5f2d" ruby bin/query_upwork.rb'
-  puts "Usage:\n#{indent}" + variants.join(" OR\n#{indent}")
+  puts "Usage:\n#{indent}" + variants.join("\nOR\n#{indent}")
 end
 
 fail unless result
