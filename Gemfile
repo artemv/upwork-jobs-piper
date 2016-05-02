@@ -28,8 +28,6 @@ gem 'less-rails-bootstrap'
 
 gem 'upwork-api'
 
-gem 'whenever'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -43,6 +41,9 @@ gem 'kaminari'
 gem 'newrelic_rpm'
 
 gem 'dotenv-rails'
+
+gem 'devise'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
