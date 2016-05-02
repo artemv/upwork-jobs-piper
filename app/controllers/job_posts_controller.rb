@@ -1,12 +1,14 @@
 class JobPostsController < ApplicationController
 
   before_action :load_job_post, only: [:hide]
+  after_filter :cors_set_access_control_headers
 
   # GET /job_posts
   # GET /job_posts.json
   def index
     jobs = basic_jobs_set
     jobs = jobs.best_priced if params[:best_prices]
+    jobs = jobs.hourly if params[:hourly]
     init_index_vars(jobs)
   end
 
@@ -32,10 +34,17 @@ class JobPostsController < ApplicationController
 
   def init_index_vars(jobs)
     @list_stats = {
-      from: (jobs.first.post_date.to_s(:long) if jobs.first),
-      to: (jobs.last.post_date.to_s(:long) if jobs.last),
+      from: (jobs.first.post_date if jobs.first),
+      to: (jobs.last.post_date if jobs.last),
       count: jobs.count }
-    @job_posts = jobs.page params[:page]
+    @job_posts = jobs.page(params[:page]).per(params[:limit] || 25)
+  end
+
+  def cors_set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
   end
 
 end

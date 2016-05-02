@@ -1,5 +1,5 @@
 = "#{@list_stats[:count]} job posts"
-= "from #{@list_stats[:from]} to #{@list_stats[:to]}" if @list_stats[:from]
+= "from #{date_string(@list_stats[:from])} to #{date_string(@list_stats[:to])}" if @list_stats[:from]
 %table.table.table-striped.table-condensed
   %thead
     %tr
@@ -23,7 +23,7 @@
         %td
           = job_post.country
           %div= money_level(job_post)
-        %td= job_post.post_date.to_s(:long)
+        %td= date_string(job_post.post_date)
         %td= bootstrap_close_button("hide this")
 
 = paginate @job_posts
