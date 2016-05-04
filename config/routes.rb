@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :job_posts, only: [:index] do
     member do
-      post 'hide'
+      post :hide
     end
   end
   get '/hourly' => 'job_posts#hourly'
