@@ -1,7 +1,7 @@
 class JobPostsController < ApplicationController
 
   before_action :load_job_post, only: [:hide]
-  after_filter :cors_set_access_control_headers
+  after_action :cors_set_access_control_headers
 
   # GET /job_posts
   # GET /job_posts.json
