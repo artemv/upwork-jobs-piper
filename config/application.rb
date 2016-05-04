@@ -41,6 +41,8 @@ module UpworkJobs
       "#{severity} [#{datetime.strftime("%H:%M:%S.#{ms}")} #{Process.pid}]: #{msg}\n"
     end
 
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
   end
 
 end

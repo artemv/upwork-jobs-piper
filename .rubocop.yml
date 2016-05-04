@@ -5,7 +5,7 @@ AllCops:
   Exclude:
     - "bin/**/*"
     - "config/boot.rb"
-    - "db/migrate/20150523134511_devise_create_users.rb"
+    - "db/migrate/20160502181602_devise_create_users.rb"
     - "config/deploy/production.rb"
     - "query_upwork.rb"
 

@@ -4,7 +4,7 @@ RSpec.describe JobPostsController, type: :routing do
   describe 'routing' do
 
     it 'routes to #index' do
-      expect(get: '/').to route_to('job_posts#index')
+      expect(get: '/job_posts').to route_to('job_posts#index')
     end
 
     it 'routes to #hourly' do

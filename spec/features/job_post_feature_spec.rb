@@ -4,10 +4,10 @@ require 'pry' # To be able to jump into pry debugger via binding.pry.
 
 describe 'Job post' do
 
-  pathes = ['/', '/hourly']
+  pathes = ['/job_posts', '/hourly']
 
   describe 'with data' do
-    let(:path) { '/' }
+    let(:path) { pathes[0] }
 
     before :example do
       JobPost.import_upwork_jobs(load_json_fixture('jobs_search', 'list.json'))

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'job_posts#index'
+  devise_for :users
+  root 'home#index'
   resources :job_posts, only: [:index] do
     member do
       post 'hide'
