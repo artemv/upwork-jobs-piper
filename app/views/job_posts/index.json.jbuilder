@@ -8,4 +8,6 @@ json.jobs @job_posts.map do |job_post|
   json.budget job_post.budget
   json.country job_post.country
   json.post_date job_post.post_date
+  json.url job_post.url
+  json.id job_post.id
 end
