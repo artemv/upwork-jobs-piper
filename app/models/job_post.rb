@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # A job posts model + its importing API entry points
 class JobPost < ActiveRecord::Base
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class AddMoneyLevelToJobPosts < ActiveRecord::Migration
   def change
     add_column :job_posts, :money_level, :integer

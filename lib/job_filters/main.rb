@@ -1,9 +1,10 @@
+# frozen_string_literal: true
 module JobFilters
 
-  DEV_CATEGORY = 'Web, Mobile & Software Dev'.freeze
+  DEV_CATEGORY = 'Web, Mobile & Software Dev'
   DEV_SUBCATEGORIES = ['Web Development', 'Ecommerce Development', 'Other - Software Development',
                        'Scripts & Utilities', 'QA & Testing'].freeze
-  FIXED_JOB_TYPE = 'Fixed'.freeze
+  FIXED_JOB_TYPE = 'Fixed'
 
   # Job filters composer
   class Main

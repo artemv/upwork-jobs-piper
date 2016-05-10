@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 namespace :upwork_jobs do
 
   task fetch_jobs: :environment do

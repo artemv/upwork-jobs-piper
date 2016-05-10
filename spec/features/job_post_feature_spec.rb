@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'pry' # To be able to jump into pry debugger via binding.pry.
 # This can be useful for debugging when using Selenium driver - thus the browser doesn't get closed while debugging
 # session is active.

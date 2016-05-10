@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # based on  https://github.com/seyhunak/twitter-bootstrap-rails project
 module BootstrapFlashHelper
 

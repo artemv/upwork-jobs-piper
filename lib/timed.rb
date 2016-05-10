@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # A utility to log yielded code execution time
 class Timed
 

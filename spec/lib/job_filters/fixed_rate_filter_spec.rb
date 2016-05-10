@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe JobFilters::FixedRateFilter do
   let(:valid_job_data) { { 'title' => 'lala', 'skills' => [], 'budget' => '150' } }
 

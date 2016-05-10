@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 json.count @list_stats[:count]
 json.firstDate @list_stats[:from]
 json.lastDate @list_stats[:to]

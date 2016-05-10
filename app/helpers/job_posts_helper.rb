@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module JobPostsHelper
 
   def job_post_class(job_post)

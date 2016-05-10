@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 describe 'JobPost' do
   describe 'import_upwork_job' do
     let(:fixtures_dir) { 'jobs_search' }

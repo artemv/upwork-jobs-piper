@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 RSpec.describe JobFilters::HourlyRateFilter do
   let(:valid_job_data) { { 'title' => 'ruby' } }
 

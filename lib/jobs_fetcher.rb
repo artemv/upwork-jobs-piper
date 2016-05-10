@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'upwork/api'
 require 'upwork/api/routers/jobs/search'
 require 'job_filters/main'
@@ -8,7 +9,7 @@ class JobsFetcher
   attr_accessor :client_config, :until_date
 
   PAGE_SIZE = 100
-  CREATED_DATE_FIELD = 'date_created'.freeze
+  CREATED_DATE_FIELD = 'date_created'
 
   def initialize(until_date)
     @client_config = Upwork::Api::Config.new(Rails.application.secrets.upwork_api)

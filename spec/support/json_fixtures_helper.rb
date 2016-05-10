@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 def load_json_fixture_text(dir, fn)
   File.open(Rails.root.join('spec', 'support', 'fixtures', dir, fn), &:read)
 end
