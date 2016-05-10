@@ -6,6 +6,11 @@ describe 'Job post' do
 
   pathes = ['/job_posts', '/hourly']
 
+  before(:example) do
+    user = FactoryGirl.create(:user)
+    signin(user.email, user.password)
+  end
+
   describe 'with data' do
     let(:path) { pathes[0] }
 

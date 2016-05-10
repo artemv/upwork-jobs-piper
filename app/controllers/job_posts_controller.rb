@@ -1,5 +1,6 @@
 class JobPostsController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :load_job_post, only: [:hide]
   after_action :cors_set_access_control_headers
   skip_before_action :verify_authenticity_token, only: [:hide]
