@@ -39,7 +39,8 @@ class JobPostsController < ApplicationController
     @list_stats = {
       from: (jobs.first.post_date if jobs.first),
       to: (jobs.last.post_date if jobs.last),
-      count: jobs.count }
+      count: jobs.count
+    }
     @job_posts = jobs.page(params[:page]).per(params[:limit] || 25)
   end
 
