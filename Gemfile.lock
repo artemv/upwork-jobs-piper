@@ -41,7 +41,7 @@ GEM
     ast (2.2.0)
     bcrypt (3.1.11)
     builder (3.2.2)
-    byebug (9.0.4)
+    byebug (9.0.5)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
