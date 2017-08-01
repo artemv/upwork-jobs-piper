@@ -1,4 +1,6 @@
 #Upwork Jobs Piper
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/artemv/upwork-jobs-piper.svg)](https://greenkeeper.io/)
 This is a customizeable Upwork jobs filtering app.
 
 [![Travis build status](http://img.shields.io/travis/artemv/upwork-jobs-piper.svg?style=flat)](https://travis-ci.org/artemv/upwork-jobs-piper)
