@@ -9,8 +9,8 @@
   "author": "Artem Vasiliev",
   "license": "MIT",
   "devDependencies": {
-    "cz-conventional-changelog": "^1.1.5",
-    "ghooks": "^1.0.3"
+    "cz-conventional-changelog": "^2.0.0",
+    "ghooks": "^2.0.0"
   },
   "config": {
     "ghooks": {
