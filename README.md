@@ -1,4 +1,4 @@
-#Upwork Jobs Piper
+# Upwork Jobs Piper
 This is a customizeable Upwork jobs filtering app.
 
 [![Travis build status](http://img.shields.io/travis/artemv/upwork-jobs-piper.svg?style=flat)](https://travis-ci.org/artemv/upwork-jobs-piper)
@@ -6,7 +6,7 @@ This is a customizeable Upwork jobs filtering app.
 [![Test Coverage](https://codeclimate.com/github/artemv/upwork-jobs-piper/badges/coverage.svg)](https://codeclimate.com/github/artemv/upwork-jobs-piper/coverage)
 [![Dependency Status](https://gemnasium.com/artemv/upwork-jobs-piper.svg)](https://gemnasium.com/artemv/upwork-jobs-piper)
 
-#Installation
+# Installation
 * Register new application at Upwork to get consumer key and consumer secret: https://www.upwork.com/services/api/apply.
 Or use your existing app key, you can see them at https://www.upwork.com/services/api/keys.
 * Clone the repo: `git clone https://github.com/artemv/upwork-jobs-piper.git`
@@ -36,6 +36,6 @@ bundle exec rake db:create db:migrate
 */10 * * * * /bin/bash -l -c 'cd /absolute/path/to/upwork-jobs-piper && bundle exec rake upwork_jobs:fetch_jobs --silent'
 ```
 
-#Terms of Use
+# Terms of Use
 This app uses Upwork API and Upwork jobs data, make sure to check their Terms of Use before using it: https://developers.upwork.com/api-tos.html
 
