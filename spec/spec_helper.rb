@@ -18,7 +18,6 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-require 'codeclimate-test-reporter'
 require 'webmock/rspec'
 require 'database_cleaner'
 
@@ -47,8 +46,6 @@ RSpec.configure do |config|
   end
 
   Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
-
-  CodeClimate::TestReporter.start
 
   WebMock.disable_net_connect!(allow_localhost: true, allow: ['api.codacy.com', 'codeclimate.com'])
 # The settings below are suggested to provide a good initial experience
